@@ -8284,11 +8284,12 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Microsoft.EntityFrameworkCore >= 3.1.2",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
-      "Microsoft.EntityFrameworkCore.Tools >= 3.1.2",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1"
+      "Microsoft.Visualstudio.web.codegeneration.design >= 3.1.1",
+      "microsoft.entityframeworkcore.tools >= 3.1.2"
     ]
   },
   "packageFolders": {
@@ -8328,6 +8329,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[3.1.2, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -8342,15 +8347,15 @@
             "target": "Package",
             "version": "[1.1.6, )"
           },
-          "Microsoft.EntityFrameworkCore.Tools": {
+          "Microsoft.Visualstudio.web.codegeneration.design": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          },
+          "microsoft.entityframeworkcore.tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.1.2, )"
-          },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "[3.1.1, )"
           }
         },
         "imports": [

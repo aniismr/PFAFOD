@@ -48,7 +48,7 @@ namespace FodApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCompetence(int id, Competence competence)
         {
-            if (id != competence.id_competence)
+            if (id != competence.id)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace FodApi.Controllers
             _context.Competences.Add(competence);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCompetence", new { id = competence.id_competence }, competence);
+            return CreatedAtAction("GetCompetence", new { id = competence.id }, competence);
         }
 
         // DELETE: api/Competences/5
@@ -104,7 +104,7 @@ namespace FodApi.Controllers
 
         private bool CompetenceExists(int id)
         {
-            return _context.Competences.Any(e => e.id_competence == id);
+            return _context.Competences.Any(e => e.id == id);
         }
     }
 }

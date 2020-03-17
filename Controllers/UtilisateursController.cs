@@ -12,48 +12,48 @@ namespace FodApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CandidatsController : ControllerBase
+    public class UtilisateursController : ControllerBase
     {
         private readonly FodContext _context;
 
-        public CandidatsController(FodContext context)
+        public UtilisateursController(FodContext context)
         {
             _context = context;
         }
 
-        // GET: api/Candidats
+        // GET: api/Utilisateurs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidat>>> GetCandidats()
+        public async Task<ActionResult<IEnumerable<Utilisateur>>> GetUtilisateurs()
         {
-            return await _context.Candidats.ToListAsync();
+            return await _context.Utilisateurs.ToListAsync();
         }
 
-        // GET: api/Candidats/5
+        // GET: api/Utilisateurs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Candidat>> GetCandidat(int id)
+        public async Task<ActionResult<Utilisateur>> GetUtilisateur(int id)
         {
-            var candidat = await _context.Candidats.FindAsync(id);
+            var utilisateur = await _context.Utilisateurs.FindAsync(id);
 
-            if (candidat == null)
+            if (utilisateur == null)
             {
                 return NotFound();
             }
 
-            return candidat;
+            return utilisateur;
         }
 
-        // PUT: api/Candidats/5
+        // PUT: api/Utilisateurs/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCandidat(int id, Candidat candidat)
+        public async Task<IActionResult> PutUtilisateur(int id, Utilisateur utilisateur)
         {
-            if (id != candidat.id)
+            if (id != utilisateur.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(candidat).State = EntityState.Modified;
+            _context.Entry(utilisateur).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace FodApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CandidatExists(id))
+                if (!UtilisateurExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace FodApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Candidats
+        // POST: api/Utilisateurs
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Candidat>> PostCandidat(Candidat candidat)
+        public async Task<ActionResult<Utilisateur>> PostUtilisateur(Utilisateur utilisateur)
         {
-            _context.Candidats.Add(candidat);
+            _context.Utilisateurs.Add(utilisateur);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCandidat", new { id = candidat.id }, candidat);
+            return CreatedAtAction("GetUtilisateur", new { id = utilisateur.id }, utilisateur);
         }
 
-        // DELETE: api/Candidats/5
+        // DELETE: api/Utilisateurs/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Candidat>> DeleteCandidat(int id)
+        public async Task<ActionResult<Utilisateur>> DeleteUtilisateur(int id)
         {
-            var candidat = await _context.Candidats.FindAsync(id);
-            if (candidat == null)
+            var utilisateur = await _context.Utilisateurs.FindAsync(id);
+            if (utilisateur == null)
             {
                 return NotFound();
             }
 
-            _context.Candidats.Remove(candidat);
+            _context.Utilisateurs.Remove(utilisateur);
             await _context.SaveChangesAsync();
 
-            return candidat;
+            return utilisateur;
         }
 
-        private bool CandidatExists(int id)
+        private bool UtilisateurExists(int id)
         {
-            return _context.Candidats.Any(e => e.id == id);
+            return _context.Utilisateurs.Any(e => e.id == id);
         }
     }
 }

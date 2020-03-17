@@ -25,9 +25,7 @@ namespace FodApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Candidature>>> GetCandidatures()
         {
-            return await _context.Candidatures
-            .Include(c=> c.competences)
-            .ToListAsync();
+            return await _context.Candidatures.ToListAsync();
         }
 
         // GET: api/Candidatures/5
@@ -50,7 +48,7 @@ namespace FodApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCandidature(int id, Candidature candidature)
         {
-            if (id != candidature.id_candidature)
+            if (id != candidature.id)
             {
                 return BadRequest();
             }
@@ -85,7 +83,7 @@ namespace FodApi.Controllers
             _context.Candidatures.Add(candidature);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCandidature", new { id = candidature.id_candidature }, candidature);
+            return CreatedAtAction("GetCandidature", new { id = candidature.id }, candidature);
         }
 
         // DELETE: api/Candidatures/5
@@ -106,7 +104,7 @@ namespace FodApi.Controllers
 
         private bool CandidatureExists(int id)
         {
-            return _context.Candidatures.Any(e => e.id_candidature == id);
+            return _context.Candidatures.Any(e => e.id == id);
         }
     }
 }

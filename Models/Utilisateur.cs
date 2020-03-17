@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace FodApi.Model
 {
-    public class Candidat
+    public class Utilisateur
     {
         [Key]
-        public int id_candidat { get; set; }
+        public int id { get; set; }
         [Column(TypeName ="nvarchar(20)")]
         [Required]
+        public string photo { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
         public string nom { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         [Required]
@@ -22,14 +24,9 @@ namespace FodApi.Model
         public string email { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         [Required]
-        public string cv { get; set; }
-        [Column(TypeName = "nvarchar(100)")]
-        [Required]
-        public int experience { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime datenaissance { get; set; }
+        public string mdp {get;set;}
 
-        public ICollection<Candidature> candidature { get; set; }
+        public ICollection<Role> role  {get;set;}
 
     }
 }

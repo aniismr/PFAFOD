@@ -9,8 +9,7 @@ namespace FodApi.Model
 {
     public class Competence
     {   [Key]
-        [Column(TypeName = "nvarchar(100)")]
-        public int id_competence { get; set; }
+        public int id { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         public string libele { get; set; }
 

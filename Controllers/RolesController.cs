@@ -12,48 +12,48 @@ namespace FodApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CandidatsController : ControllerBase
+    public class RolesController : ControllerBase
     {
         private readonly FodContext _context;
 
-        public CandidatsController(FodContext context)
+        public RolesController(FodContext context)
         {
             _context = context;
         }
 
-        // GET: api/Candidats
+        // GET: api/Roles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidat>>> GetCandidats()
+        public async Task<ActionResult<IEnumerable<Role>>> GetRoles()
         {
-            return await _context.Candidats.ToListAsync();
+            return await _context.Roles.ToListAsync();
         }
 
-        // GET: api/Candidats/5
+        // GET: api/Roles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Candidat>> GetCandidat(int id)
+        public async Task<ActionResult<Role>> GetRole(int id)
         {
-            var candidat = await _context.Candidats.FindAsync(id);
+            var role = await _context.Roles.FindAsync(id);
 
-            if (candidat == null)
+            if (role == null)
             {
                 return NotFound();
             }
 
-            return candidat;
+            return role;
         }
 
-        // PUT: api/Candidats/5
+        // PUT: api/Roles/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCandidat(int id, Candidat candidat)
+        public async Task<IActionResult> PutRole(int id, Role role)
         {
-            if (id != candidat.id)
+            if (id != role.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(candidat).State = EntityState.Modified;
+            _context.Entry(role).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace FodApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CandidatExists(id))
+                if (!RoleExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace FodApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Candidats
+        // POST: api/Roles
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Candidat>> PostCandidat(Candidat candidat)
+        public async Task<ActionResult<Role>> PostRole(Role role)
         {
-            _context.Candidats.Add(candidat);
+            _context.Roles.Add(role);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCandidat", new { id = candidat.id }, candidat);
+            return CreatedAtAction("GetRole", new { id = role.id }, role);
         }
 
-        // DELETE: api/Candidats/5
+        // DELETE: api/Roles/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Candidat>> DeleteCandidat(int id)
+        public async Task<ActionResult<Role>> DeleteRole(int id)
         {
-            var candidat = await _context.Candidats.FindAsync(id);
-            if (candidat == null)
+            var role = await _context.Roles.FindAsync(id);
+            if (role == null)
             {
                 return NotFound();
             }
 
-            _context.Candidats.Remove(candidat);
+            _context.Roles.Remove(role);
             await _context.SaveChangesAsync();
 
-            return candidat;
+            return role;
         }
 
-        private bool CandidatExists(int id)
+        private bool RoleExists(int id)
         {
-            return _context.Candidats.Any(e => e.id == id);
+            return _context.Roles.Any(e => e.id == id);
         }
     }
 }
