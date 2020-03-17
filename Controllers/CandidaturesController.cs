@@ -25,14 +25,20 @@ namespace FodApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Candidature>>> GetCandidatures()
         {
-            return await _context.Candidatures.ToListAsync();
+            return await _context.Candidatures
+            .Include(ca=>ca.candidat)
+            .Include(co=>co.competence)
+            .ToListAsync();
         }
 
         // GET: api/Candidatures/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Candidature>> GetCandidature(int id)
         {
-            var candidature = await _context.Candidatures.FindAsync(id);
+            var candidature = await _context.Candidatures
+            .Include(can=>can.candidat)
+            .Include(comp=>comp.competence)
+            .FirstOrDefaultAsync(i=>i.id == id);
 
             if (candidature == null)
             {

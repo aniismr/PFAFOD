@@ -25,14 +25,18 @@ namespace FodApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Utilisateur>>> GetUtilisateurs()
         {
-            return await _context.Utilisateurs.ToListAsync();
+            return await _context.Utilisateurs
+            .Include(r=>r.role)
+            .ToListAsync();
         }
 
         // GET: api/Utilisateurs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Utilisateur>> GetUtilisateur(int id)
         {
-            var utilisateur = await _context.Utilisateurs.FindAsync(id);
+            var utilisateur = await _context.Utilisateurs
+            .Include(r=>r.role)
+            .FirstOrDefaultAsync(i=>i.id == id);
 
             if (utilisateur == null)
             {
