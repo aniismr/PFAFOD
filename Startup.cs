@@ -28,6 +28,7 @@ namespace FodApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
             services.AddDbContext<FodContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
@@ -39,7 +40,7 @@ namespace FodApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseHttpsRedirection();
 
             app.UseRouting();

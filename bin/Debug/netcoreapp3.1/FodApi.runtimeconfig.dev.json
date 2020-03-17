@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\aniis\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\aniis\\.nuget\\packages"
+      "C:\\Users\\slimc\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\slimc\\.nuget\\packages"
     ]
   }
 }
