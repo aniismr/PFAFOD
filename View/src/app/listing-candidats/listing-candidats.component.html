@@ -1,0 +1,25 @@
+<div class="container">
+<h4>Afficher tous les condidats</h4>
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+    <th>Date</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Demande</th>
+    <th>Competances</th>
+    <th>Status</th>
+    <th>Detail</th>
+    </tr>
+    <tr *ngFor="let listing of listArr;let i = index">
+    <td>{{listing.datenaissance}}</td>
+    <td>{{listing.nom}}</td>
+    <td>{{listing.prenom}}</td>
+    <td>{{listing.demande}}</td>
+    <td>{{listing.competance}}</td>
+    <td>{{listing.status}}</td>
+    <td><a [routerLink]="'/detail-listing/'+listing.id">Detail</a>
+    </tr>
+    </tbody> 
+    </table>
+</div>
