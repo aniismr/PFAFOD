@@ -65,7 +65,7 @@ def api_id():
     for i in l:
         if '@' in i:
             mail=i
-            d['mail']=mail
+            d['email']=mail
     
     tokens = word_tokenize(text)
     #we'll create a new list which contains punctuation we wish to clean
@@ -76,8 +76,16 @@ def api_id():
     keywords = [word for word in tokens if word in skills  ]
     keyw=[word for word in l if word in skills  ]
     s=set(keywords+keyw)
+    k=list()
     l1=list(s)
-    b['competence']=l1
+    for j in l1:
+
+        f={}
+        f['libele']=j
+        k.append(f)
+
+    
+    b['competence']=k
     
     results.append(d)
     results.append(b)
