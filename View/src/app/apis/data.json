@@ -1,0 +1,194 @@
+{
+  "candidatures": [
+    {
+      "id": 1,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "pyhon"
+        }
+
+      ],
+      "cv": "144555.pdf",
+      "status": "Accepter"
+    },
+    {
+      "id": 2,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c#"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "python"
+        }
+      ],
+      "cv": "144556.pdf",
+      "status": "En Attente"
+    },
+    {
+      "id": 3,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpeg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c#"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "python"
+        }
+      ],
+      "cv": "144555.pdf",
+      "status": "En Attente"
+    },
+    {
+      "id": 4,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpeg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c#"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "python"
+        }
+      ],
+      "cv": "144555.pdf",
+      "status": "En Attente"
+    },
+    {
+      "id": 5,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpeg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c#"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "python"
+        }
+      ],
+      "cv": "144555.pdf",
+      "status": "En Attente"
+    },
+    {
+      "id": 6,
+      "datepostulation": "2020-12-31",
+      "type": "PFA",
+      "candidat": [
+        {
+          "id": 1,
+          "photo": "unknown.jpeg",
+          "nom": "Chaari",
+          "prenom": "Slim",
+          "email": "slim@slim.slim",
+          "experience": 2,
+          "date_de_naissance": "2020-02-05"
+        }
+      ],
+      "competence": [
+        {
+          "label": "java"
+        },
+        {
+          "label": "c#"
+        },
+        {
+          "label": "c++"
+        },
+        {
+          "label": "python"
+        }
+      ],
+      "cv": "144555.pdf",
+      "status": "En Attente"
+    }
+  ]
+}

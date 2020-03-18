@@ -1,0 +1,91 @@
+<app-header></app-header>
+<div class="container" *ngIf="loaded">
+<h2>Candidature N° {{candidature.id}}</h2>
+    <form #editCandidat="ngForm" (ngSubmit)="openDialog(editCandidat)" *ngIf="candidature!=null" > 
+        <div class="form-row">
+      
+          <div class="form-group col-md-4">
+            <label></label>
+           </div>
+          <div class="form-group col-md-4">
+       
+            <img  src="assets/candidats/{{candidature.candidat.photo}}" class="img-thumbnail " />
+          </div>
+ 
+
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Date de postulation :</label>
+            <input type="text" readonly class="form-control" [ngModel]="candidature.datepostulation" name="datepostulation">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input  type="email" class="form-control" readonly [(ngModel)]="candidature.candidat.email" name="email" placeholder="Email">
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Nom</label>
+          <input  required type="text" [(ngModel)]="candidature.candidat.nom" name="nom" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Prenom </label>
+          <input required type="text" [(ngModel)]="candidature.candidat.prenom" name="prenom" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Experience</label>
+            <input type="number" name="experience" [(ngModel)]="candidature.candidat.experience" class="form-control" id="inputCity">
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="datenaissance">Date de naissance</label>
+            <input name="datenaissance"  [ngModel]="candidature.candidat.date_de_naissance | date:'yyyy-MM-dd'" 
+            type="date" class="form-control" />
+          </div>
+   
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">competences</label>
+                </div>
+                <select [(ngModel)]="candidature.competences" multiple class="custom-select" name="competences">
+                  <option *ngFor="let competence of candidature.competences" [ngValue]="competence" >{{competence.label}}</option>
+                </select>
+              </div>
+
+            </div>
+ 
+    
+        </div>
+        <div class="form-row" fxLayout="row" fxLayoutAlign="space-between " >
+        <div class="form-group col-md-6" >
+          <label  >Etat : {{candidature.status}}</label>
+          <select required ngModel="candidature.status" name="status" class="form-control">
+            <option ng-selected="true" >En Attente</option>
+            <option>Rejeter</option>
+            <option>Accepter</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-3">
+          <label for="inputState">CV</label>
+          <a  name="cvimg" class="btn btn-dark form-control" href="assets/candidature/{{candidature.cv}}">Telecharger</a>
+        </div>
+        </div>
+        <button type="submit" [disabled]="!editCandidat.valid" class="btn btn-primary text-white">Modifer</button>
+        <a type="button" routerLink="/candidatures"  class="btn btn-dark text-white">Annuler</a>
+      </form>
+      
+
+</div>
+<div class="container" fxLayout="row" fxLayoutAlign="center center" *ngIf="!loaded"> 
+  <div class="spinner-border" role="status">
+
+  </div>
+</div>
+<app-footer></app-footer>
