@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import{ ActivatedRoute } from "@angular/router";
 import {Router } from   '@angular/router';
 import  {DbOperationsService} from '../db-operations.service';
-import { Candidat} from '../model/candidat';
+import { Candidat} from '../model/Candidat';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { delay, ignoreElements } from 'rxjs/operators';
-import { Candidature } from '../model/candidature';
+import { Candidature } from '../model/Candidature';
 import { Competence } from '../model/Competence';
 import { PopupModalComponent } from '../popup-modal/popup-modal.component';
 import {MatSnackBar} from '@angular/material/snack-bar';

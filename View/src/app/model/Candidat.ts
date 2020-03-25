@@ -1,4 +1,4 @@
-import {Candidature} from "../model/candidature";
+import {Candidature} from "../model/Candidature";
 
 
 export class Candidat {

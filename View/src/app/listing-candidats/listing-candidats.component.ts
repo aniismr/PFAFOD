@@ -1,8 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import  {DbOperationsService} from '../db-operations.service';
-import { Candidat} from '../model/candidat';
+import { Candidat} from '../model/Candidat';
 import  {Observable} from 'rxjs';
-import { Candidature } from '../model/candidature';
+import { Candidature } from '../model/Candidature';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table'
 import { MatSort } from '@angular/material/sort';
