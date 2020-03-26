@@ -1,0 +1,52 @@
+<div  class="container">
+    <form [formGroup]="addCandidature" (ngSubmit)="register(file.files)" *ngIf=(loaded)>
+        <h3 class="text-center text-primary">Nouvelle Candidature</h3>
+        <div class="form-group">
+            <label for="datePostulation">Date de postulation :</label><br>
+            <input type="date" formControlName="datePostulation" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="candidatId">Candidat :</label><br>
+            <select formControlName="candidatId">
+                <option [ngValue]="null" disabled>Choisir un candidat</option>
+                <option *ngFor="let candidat of candidats" [ngValue]="candidat.candidatId">
+                 id: {{ candidat.candidatId}} |Nom: {{ candidat.candidatNom}} |Prenom {{ candidat.candidatPrenom}}
+                </option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="competenceCandidature">Competences :</label><br>
+            <select multiple formControlName="competenceCandidature">
+                <option [ngValue]="null" disabled>Choisir les competences</option>
+                <option *ngFor="let competence of competences" [ngValue]="competence">
+                 {{ competence.competenceName }}
+                </option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="reponse">Reponse :</label><br>
+            <select formControlName="reponse">
+                <option disabled>Votre reponse</option>
+                <option>Accepter</option>
+                <option>En Attente</option>
+                <option>Refuser</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="type">TYPE :</label><br>
+            <select formControlName="type">
+                <option disabled>Type</option>
+                <option>PFA</option>
+                <option>PFE</option>
+                <option>Stage d'ete</option>
+              </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="cv">CV :</label><br>
+            <input type="file"  #file formControlName="cv" class="from-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+
+</div>

@@ -6,5 +6,4 @@ export interface Candidat {
     email:string;
     experience:number;
     dateDeNaissance:string;
-    
 }

@@ -13,10 +13,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { PopupModalComponent } from './popup-modal/popup-modal.component';
+import { AddCandidatComponent } from './add-candidat/add-candidat.component';
+import { DetailCandidatComponent } from './detail-candidat/detail-candidat.component';
+import { AddCandidatureComponent } from './add-candidature/add-candidature.component';
+import { ListCandidatComponent } from './list-candidat/list-candidat.component';
 
 
 @NgModule({
-  declarations: [ListCandidaturesComponent, DetailCandidatureComponent, PopupModalComponent],
+  declarations: [ListCandidaturesComponent, DetailCandidatureComponent, PopupModalComponent, AddCandidatComponent, DetailCandidatComponent, AddCandidatureComponent, ListCandidatComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

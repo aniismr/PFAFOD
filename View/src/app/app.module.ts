@@ -14,18 +14,28 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
+import {JwtInterceptor} from './jwt.interceptor';
+import {ErrorInterceptor} from './error.interceptor';
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+import { AddUserComponent } from './add-user/add-user.component';
 @NgModule({
   declarations: [
+
     AppComponent,
     HeaderComponent,
     LoginComponent,
     FooterComponent,
     PageNotFoundComponent,
+    SignInComponent,
+    AddUserComponent,
     
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
@@ -38,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

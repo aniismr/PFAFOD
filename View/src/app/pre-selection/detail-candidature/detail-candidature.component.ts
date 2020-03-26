@@ -43,7 +43,10 @@ export class DetailCandidatureComponent implements OnInit {
      //this.modifier? this.editListing(editCandidat):console.log("failed");
 
    });
+   
 
  }
- 
+ photoPath(serverPath: string){
+  return this.dbOps.createImgPath(serverPath);
+}
 }

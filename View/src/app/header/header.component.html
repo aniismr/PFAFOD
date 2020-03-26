@@ -1,4 +1,4 @@
-<div fxLayoutGap="1em" class="container-fluid">
+<div  fxLayoutGap="1em" class="container-fluid" >
     <app-login></app-login>
  
     <div fxLayout="row" fxLayoutAlign="space-between end" > 
@@ -6,7 +6,8 @@
         <div>        
             <ul class="nav nav-pills mb-3" > 
             <li   class="nav-item"><a routerLink="/candidatures" class="nav-link " routerLinkActive=" active "  >Liste des candidatures</a></li>
-            <li   class="nav-item"><a routerLink="/addUser" class="nav-link " routerLinkActive=" active "  >Ajouter un utilisateur</a></li>
+            <li   class="nav-item"><a routerLink="/candidats" class="nav-link " routerLinkActive=" active "  >Liste des candidats</a></li>
+            <li   class="nav-item"><a routerLink="/addUser" class="nav-link " routerLinkActive=" active " *ngIf="isAdmin"  >Ajouter un utilisateur</a></li>
 
         </ul>
     </div>
