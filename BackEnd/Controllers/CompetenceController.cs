@@ -11,10 +11,10 @@ namespace BackEnd.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CandidatController : ControllerBase
+    public class CompetenceController : ControllerBase
     {
         private readonly dbContext _context;
-            public CandidatController(dbContext context)
+            public CompetenceController(dbContext context)
         {
             _context = context;
         }
@@ -33,19 +33,12 @@ namespace BackEnd.Controllers
             return candidat;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidat>>> GetCandidats()
+        public async Task<ActionResult<IEnumerable<Competence>>> GetCompetences()
         {   
             
-            return await _context.Candidat.ToListAsync();
+            return await _context.Competence.ToListAsync();
         }
-        [HttpPost]
-        public async Task<ActionResult<Candidat>> PostCandidat(Candidat candidat)
-        {
-            _context.Candidat.Add(candidat);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCandidat", new { id = candidat.CandidatId }, candidat);
-        }
 
     }
 }
