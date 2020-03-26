@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\slimc\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\slimc\\.nuget\\packages"
-    ]
-  }
-}
