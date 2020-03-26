@@ -7,21 +7,21 @@ export class DbOperationsService {
 constructor(private http: HttpClient) { }
 getCandidatures(){
     
-return this.http.get('http://localhost:5000/api/candidatures');
+return this.http.get('https://localhost:5001/Candidature');
 }
 viewCandidature(id:number){
-return this.http.get('http://localhost:5000/api/candidatures/'+id);
+return this.http.get('http://localhost:5000/Candidature/'+id);
 }
 
 editCandidature(id:number, newList:any){
  
 let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-return this.http.put('http://localhost:5000/api/candidatures/'+id, newList,{headers});
+return this.http.put('http://localhost:5000/Candidature/'+id, newList,{headers});
 }
 editCandidat(id:number, newList:any){
  
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put('http://localhost:5000/api/candidats/'+id, newList,{headers});
+    return this.http.put('http://localhost:5000/Candidat/'+id, newList,{headers});
     }
 editCompetences(id:number, newList:any){
 
