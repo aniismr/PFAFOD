@@ -10,17 +10,17 @@ namespace BackEnd.Models
 {
     public class Question
     {
-        public int QuestionId { get; set; }
+        public int QuestionID { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        public string ennonce { get; set; }
+        public string Ennonce { get; set; }
         [Column(TypeName = "nvarchar(20)")]
-        public string rep1 { get; set; }
+        public string Rep1 { get; set; }
         [Column(TypeName = "nvarchar(20)")]
-        public string rep2 { get; set; }
+        public string Rep2 { get; set; }
         [Column(TypeName = "nvarchar(20)")]
-        public string rep3 { get; set; }
+        public string Rep3 { get; set; }
         [Column(TypeName = "nvarchar(20)")]
-        public string reptrue { get; set; }
+        public string RepTrue { get; set; }
         public int CategorieID { get; set; }
         public Categorie Categorie { get; set; }
 

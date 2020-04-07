@@ -7,21 +7,23 @@ using System.Linq;
 using System;
 namespace BackEnd.Models
 {
-    public class test
+    public class Test
     {
         public int TestId { get; set; }
         [Column(TypeName = "nvarchar(20)")]
         public string Date { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        public string nbcandidat { get; set; }
+        public int NbCandidature { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         
-        public string heure { get; set; }
+        public string Heure { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         
-        public ICollection<Candidature> Candidature { get; set; }
-        public ICollection<Question> Questions { get; set; }
-        public override string ToString() => JsonSerializer.Serialize<test>(this);
+        public ICollection<TestCandidature> TestCandidature { get; set; }
+        public ICollection<TestCategorie> TestCategorie { get; set; }
+        public int NbPlace {get;set;}
+        public string Type{get;set;}
+        public override string ToString() => JsonSerializer.Serialize<Test>(this);
 
     }
 }

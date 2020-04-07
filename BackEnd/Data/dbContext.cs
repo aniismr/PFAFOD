@@ -11,9 +11,9 @@ namespace BackEnd.Data{
         public DbSet<User> User {get;set;}
         public DbSet<Question> Question { get; set; }
         public DbSet<Categorie> Categorie { get; set; }
-        public DbSet<test> test { get; set; }
-        public DbSet<TestQuestion> TestQuestion { get; set; }
-        public DbSet<TestCandidat> testCandidat { get; set; }
+        public DbSet<Test> Test { get; set; }
+        public DbSet<TestCategorie> TestCategorie { get; set; }
+        public DbSet<TestCandidature> TestCandidature { get; set; }
 
     }
 }

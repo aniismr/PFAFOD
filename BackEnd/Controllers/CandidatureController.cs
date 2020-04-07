@@ -40,6 +40,13 @@ namespace BackEnd.Controllers
 
             return candidature;
         }
+        [HttpGet("{type}/{number}")]
+           public async Task<ActionResult<IEnumerable<Candidature>>> GetBy(string type,int number)
+        {
+         return await _context.Candidature.Where(c =>c.Type==type).Where(c => c.Reponse.Equals("Accepter")).Take(number).ToListAsync();
+
+        }
+        
         [HttpPost]
         public async Task<ActionResult<Candidature>> PostCandidature(Candidature candidature)
         {

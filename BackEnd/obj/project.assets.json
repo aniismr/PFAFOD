@@ -5087,19 +5087,19 @@
     ]
   },
   "packageFolders": {
-    "/home/lenovo/.nuget/packages/": {}
+    "C:\\Users\\slimc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lenovo/Documents/Angular/BackEnd/BackEnd.csproj",
+      "projectUniqueName": "D:\\Angular\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
-      "projectPath": "/home/lenovo/Documents/Angular/BackEnd/BackEnd.csproj",
-      "packagesPath": "/home/lenovo/.nuget/packages/",
-      "outputPath": "/home/lenovo/Documents/Angular/BackEnd/obj/",
+      "projectPath": "D:\\Angular\\BackEnd\\BackEnd.csproj",
+      "packagesPath": "C:\\Users\\slimc\\.nuget\\packages\\",
+      "outputPath": "D:\\Angular\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/lenovo/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\slimc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5154,7 +5154,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

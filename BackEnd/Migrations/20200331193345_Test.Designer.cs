@@ -3,14 +3,16 @@ using BackEnd.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(dbContext))]
-    partial class dbContextModelSnapshot : ModelSnapshot
+    [Migration("20200331193345_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,15 +84,15 @@ namespace BackEnd.Migrations
 
             modelBuilder.Entity("BackEnd.Models.Categorie", b =>
                 {
-                    b.Property<int>("CategorieID")
+                    b.Property<int>("CategorieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Libelle")
+                    b.Property<string>("libelle")
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("CategorieID");
+                    b.HasKey("CategorieId");
 
                     b.ToTable("Categorie");
                 });
@@ -134,7 +136,7 @@ namespace BackEnd.Migrations
 
             modelBuilder.Entity("BackEnd.Models.Question", b =>
                 {
-                    b.Property<int>("QuestionID")
+                    b.Property<int>("QuestionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -142,22 +144,22 @@ namespace BackEnd.Migrations
                     b.Property<int>("CategorieID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ennonce")
+                    b.Property<string>("ennonce")
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Rep1")
+                    b.Property<string>("rep1")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Rep2")
+                    b.Property<string>("rep2")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Rep3")
+                    b.Property<string>("rep3")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("RepTrue")
+                    b.Property<string>("reptrue")
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("QuestionID");
+                    b.HasKey("QuestionId");
 
                     b.HasIndex("CategorieID");
 
@@ -174,18 +176,11 @@ namespace BackEnd.Migrations
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Heure")
+                    b.Property<string>("heure")
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("NbCandidature")
-                        .IsRequired()
+                    b.Property<string>("nbcandidat")
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("NbPlace")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TestId");
 
@@ -202,8 +197,8 @@ namespace BackEnd.Migrations
                     b.Property<int>("CandidatureID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
+                    b.Property<string>("Score")
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
@@ -214,32 +209,29 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("TestID");
 
-                    b.ToTable("TestCandidature");
+                    b.ToTable("testCandidature");
                 });
 
-            modelBuilder.Entity("BackEnd.Models.TestCategorie", b =>
+            modelBuilder.Entity("BackEnd.Models.TestQuestion", b =>
                 {
-                    b.Property<int>("TestCategorieID")
+                    b.Property<int>("TestQuestionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategorieID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NbQuestion")
+                    b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
 
-                    b.HasKey("TestCategorieID");
+                    b.HasKey("TestQuestionID");
 
-                    b.HasIndex("CategorieID");
+                    b.HasIndex("QuestionID");
 
                     b.HasIndex("TestID");
 
-                    b.ToTable("TestCategorie");
+                    b.ToTable("TestQuestion");
                 });
 
             modelBuilder.Entity("BackEnd.Models.User", b =>
@@ -320,16 +312,16 @@ namespace BackEnd.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BackEnd.Models.TestCategorie", b =>
+            modelBuilder.Entity("BackEnd.Models.TestQuestion", b =>
                 {
-                    b.HasOne("BackEnd.Models.Categorie", "Categorie")
+                    b.HasOne("BackEnd.Models.Question", "Question")
                         .WithMany()
-                        .HasForeignKey("CategorieID")
+                        .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BackEnd.Models.Test", "Test")
-                        .WithMany("TestCategorie")
+                        .WithMany("TestQuestion")
                         .HasForeignKey("TestID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

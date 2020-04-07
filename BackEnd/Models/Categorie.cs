@@ -10,8 +10,8 @@ namespace BackEnd.Models
 {
     public class Categorie
     {
-        public int CategorieId { get; set; }
+        public int CategorieID { get; set; }
         [Column(TypeName = "nvarchar(20)")]
-        public string libelle { get; set; }
+        public string Libelle { get; set; }
     }
 }

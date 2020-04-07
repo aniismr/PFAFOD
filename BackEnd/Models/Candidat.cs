@@ -25,7 +25,7 @@ namespace BackEnd.Models
         [Required]
         public int Experience { get; set; }
         public string DateDeNaissance{ get; set; }
-        public ICollection<Candidature> Candidatures {get ;set;}
+
         public override string ToString() => JsonSerializer.Serialize<Candidat>(this);
 }
 }

@@ -3,14 +3,16 @@ using BackEnd.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(dbContext))]
-    partial class dbContextModelSnapshot : ModelSnapshot
+    [Migration("20200401050752_TestModifier2.2")]
+    partial class TestModifier22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,14 +180,7 @@ namespace BackEnd.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("NbCandidature")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("NbPlace")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TestId");
 
@@ -202,8 +197,8 @@ namespace BackEnd.Migrations
                     b.Property<int>("CandidatureID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
+                    b.Property<string>("Score")
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
@@ -214,32 +209,29 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("TestID");
 
-                    b.ToTable("TestCandidature");
+                    b.ToTable("testCandidature");
                 });
 
-            modelBuilder.Entity("BackEnd.Models.TestCategorie", b =>
+            modelBuilder.Entity("BackEnd.Models.TestQuestion", b =>
                 {
-                    b.Property<int>("TestCategorieID")
+                    b.Property<int>("TestQuestionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategorieID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NbQuestion")
+                    b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
                     b.Property<int>("TestID")
                         .HasColumnType("int");
 
-                    b.HasKey("TestCategorieID");
+                    b.HasKey("TestQuestionID");
 
-                    b.HasIndex("CategorieID");
+                    b.HasIndex("QuestionID");
 
                     b.HasIndex("TestID");
 
-                    b.ToTable("TestCategorie");
+                    b.ToTable("TestQuestion");
                 });
 
             modelBuilder.Entity("BackEnd.Models.User", b =>
@@ -320,16 +312,16 @@ namespace BackEnd.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BackEnd.Models.TestCategorie", b =>
+            modelBuilder.Entity("BackEnd.Models.TestQuestion", b =>
                 {
-                    b.HasOne("BackEnd.Models.Categorie", "Categorie")
+                    b.HasOne("BackEnd.Models.Question", "Question")
                         .WithMany()
-                        .HasForeignKey("CategorieID")
+                        .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BackEnd.Models.Test", "Test")
-                        .WithMany("TestCategorie")
+                        .WithMany("TestQuestion")
                         .HasForeignKey("TestID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
