@@ -13,7 +13,7 @@ namespace BackEnd.Models
         public int TestID { get; set; }
         public int CandidatureID { get; set; }
         public Candidature Candidature { get; set; }
-        public test Test { get; set; }
+        public Test Test { get; set; }
         [Column(TypeName = "nvarchar(20)")]
         public string score { get; set; }
         public override string ToString() => JsonSerializer.Serialize<TestCandidat>(this);

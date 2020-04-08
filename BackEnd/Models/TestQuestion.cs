@@ -13,7 +13,7 @@ namespace BackEnd.Models
         public int TestID { get; set; }
         public int QuestionID { get; set; }
         public Question Question { get; set; }
-        public test Test { get; set; }
+        public Test Test { get; set; }
         public override string ToString() => JsonSerializer.Serialize<TestQuestion>(this);
     }
 }
