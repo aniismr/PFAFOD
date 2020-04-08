@@ -7,7 +7,7 @@
         </div>
         <div class="form-group">
             <label for="candidatId">Candidat :</label><br>
-            <select formControlName="candidatId">
+            <select formControlName="candidatId" class="form-control">
                 <option [ngValue]="null" disabled>Choisir un candidat</option>
                 <option *ngFor="let candidat of candidats" [ngValue]="candidat.candidatId">
                  id: {{ candidat.candidatId}} |Nom: {{ candidat.candidatNom}} |Prenom {{ candidat.candidatPrenom}}
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="competenceCandidature">Competences :</label><br>
-            <select multiple formControlName="competenceCandidature">
+            <select multiple formControlName="competenceCandidature" class="form-control">
                 <option [ngValue]="null" disabled>Choisir les competences</option>
                 <option *ngFor="let competence of competences" [ngValue]="competence">
                  {{ competence.competenceName }}
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="reponse">Reponse :</label><br>
-            <select formControlName="reponse">
+            <select formControlName="reponse" class="form-control">
                 <option disabled>Votre reponse</option>
                 <option>Accepter</option>
                 <option>En Attente</option>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="type">TYPE :</label><br>
-            <select formControlName="type">
+            <select formControlName="type" class="form-control">
                 <option disabled>Type</option>
                 <option>PFA</option>
                 <option>PFE</option>
@@ -44,7 +44,7 @@
         
         <div class="form-group">
             <label for="cv">CV :</label><br>
-            <input type="file"  #file formControlName="cv" class="from-control"/>
+            <input type="file"  #file formControlName="cv" class="form-control-file"/>
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>

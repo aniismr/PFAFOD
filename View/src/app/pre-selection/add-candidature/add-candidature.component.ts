@@ -36,7 +36,7 @@ this.dbOps.getCandidats().subscribe((data:any)=>{this.candidats=data,this.dbOps.
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-    this.dbOps.addCandidatPhoto(formData).subscribe((event:any)=>{this.candidature.cv=event.fname,this.dbOps.addCandidature(this.candidature).subscribe()});
+    this.dbOps.addCV(formData).subscribe((event:any)=>{this.candidature.cv=event.fname,this.dbOps.addCandidature(this.candidature).subscribe()});
   }
   register(files){
     this.candidature=this.addCandidature.value

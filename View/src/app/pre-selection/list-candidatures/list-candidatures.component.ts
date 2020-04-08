@@ -28,12 +28,8 @@ export class ListCandidaturesComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   ngOnInit() {
-
-
     this.dbOps.getCandidatures().subscribe((data:any)=>{this.ELEMENT_DATA=data, this.dataSource = new MatTableDataSource<Candidature>(this.ELEMENT_DATA),this.dataSource.paginator = this.paginator, this.dataSource.sort = this.sort,console.log(this.ELEMENT_DATA),this.loaded=true});
-   
-
-
+    
 }
 showListing(listing){
   this.isViewPage = true;

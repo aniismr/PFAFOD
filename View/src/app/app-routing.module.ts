@@ -11,6 +11,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AddCandidatureComponent } from './pre-selection/add-candidature/add-candidature.component';
 import {AddUserComponent} from './add-user/add-user.component';
 import { ListCandidatComponent } from './pre-selection/list-candidat/list-candidat.component';
+import { TestTechniqueComponent } from './selection/test-technique/test-technique.component';
+import { SelectionModule } from './selection/selection.module';
+import { ListTestComponent } from './selection/list-test/list-test.component';
 const routes: Routes = [
   { path: '', redirectTo: '/candidatures', pathMatch: 'full' ,canActivate: [AuthGuard]},
   {path :'login' ,component:SignInComponent},
@@ -20,13 +23,15 @@ const routes: Routes = [
   {path :'ajoutCandidature',component:AddCandidatureComponent,canActivate: [AuthGuard]},
   {path:'candidat/:id',component:DetailCandidatComponent,canActivate: [AuthGuard]},
   {path:'addUser',component:AddUserComponent,canActivate: [AuthGuard]},
+  {path:'ListTest',component:ListTestComponent,canActivate: [AuthGuard]},
   {path:'candidats',component:ListCandidatComponent,canActivate: [AuthGuard]},
+  {path:'test',component:TestTechniqueComponent,canActivate: [AuthGuard]},
   {path: '**' ,component:PageNotFoundComponent}
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),PreSelectionModule],
+  imports: [RouterModule.forRoot(routes),PreSelectionModule,SelectionModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

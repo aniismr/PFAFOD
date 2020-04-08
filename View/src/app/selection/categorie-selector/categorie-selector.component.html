@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="addCategorie" (ngSubmit)="register()">
+        <div class="form-group row" >
+            <div class="col">
+            <label>Categorie</label>
+            <select formControlName="categorieID" class="form-control">
+                <option [ngValue]="null" disabled>Choisir une categorie</option>
+                <option *ngFor="let categorie of categories" [ngValue]="categorie.categorieID">
+                 {{ categorie.libelle }}
+                </option>
+              </select>
+            </div> 
+       
+        <div class="col">
+            <label>Nombre des Questions</label>
+            <input type="number" formControlName="nbQuestion" placeholder="Nombre des Questions" class="form-control"/>
+        </div>
+        <div class="col">
+            <label>Valider</label>
+            <button class="btn btn-light" type="submit" class="form-control ">Valider</button>
+        </div>
+    </div>
+    </form>
+</div>

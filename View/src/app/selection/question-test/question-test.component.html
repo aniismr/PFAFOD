@@ -1,0 +1,10 @@
+<div>
+    <form [formGroup]="addTest" (ngSubmit)="register()">
+      
+        <div class="form-row" *ngFor="let partie of arrayOne(test.nbPartie)" >
+            <app-categorie-selector (messageEvent)="receiveMessage($event)"></app-categorie-selector>
+        </div>
+        <button type="submit" class="btn btn-success">Confirmer le Test</button>
+    </form>
+
+</div>  

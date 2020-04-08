@@ -1,0 +1,58 @@
+
+<div class="container"  >
+    <h2 fxLayout="row" fxLayoutAlign="center" >Liste des Tests</h2>
+        <a routerLink="/test" class="btn btn-info">Creer un test</a>
+        <div class="mat-elevation-z1">
+          <table mat-table matSort   [dataSource]="dataSource">
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.testId}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="Date">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header>  Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Heure">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Heure </th>
+              <td mat-cell *matCellDef="let element"> {{element.heure}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="NbCandidature">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header > Nombre des candidatures </th>
+              <td mat-cell *matCellDef="let element"> {{element.nbCandidature}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Demande">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Demande </th>
+              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Detail">
+              <th class="bg-dark text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Detail </th>
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/candidature/',element.candidatureID]" class="btn btn-info">Detail</a> </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        
+    
+        
+    </div>
+    
+    <div class="container" fxLayout="row" fxLayoutAlign="center center" *ngIf="!loaded"> 
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    
+    

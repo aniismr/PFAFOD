@@ -1,21 +1,9 @@
-import {Candidature} from "../model/Candidature";
-
-
-export class Candidat {
-    id: number;
-    nom:string;
-    prenom:string;
-    email:string;
-    cv:string;
-    experience:number;
-    date_de_naissance:string;
+export interface Candidat {
+    candidatId:number;
     photo:string;
-    constructor(id:number,nom:string,prenom:string,email:string){
-        this.nom=nom;
-        this.id=id;
-        this.prenom=prenom;
-        this.email=email;
-        
-    }
-
-    }
+    candidatNom:string;
+    candidatPrenom:string;
+    email:string;
+    experience:number;
+    dateDeNaissance:string;
+}
